@@ -1,11 +1,8 @@
 function isEmpty(obj) {
-  let count = 0;
   for (let key in obj) {
-    [].push(key).length;
-    count++;
-    break;
+    return false;
   }
-  return !Boolean(count);
+  return true;
 }
 
 // или через Object.keys(object).length;
