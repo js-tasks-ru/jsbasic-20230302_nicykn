@@ -5,28 +5,17 @@ function getMinMax(str) {
       arrNum.push(+el);
     }
   });
-  const minMaxObj = { min: null, max: null };
-  arrNum.reduce((prev, el, i) => {
-    if (el < prev) {
-      if (i === 1) {
-        minMaxObj.min = el;
-        minMaxObj.max = prev;
-      } else if (el < minMaxObj.min) {
-        minMaxObj.min = el;
-      } else if (prev > minMaxObj.max) {
-        minMaxObj.max = prev;
-      }
-    } else {
-      if (i === 1) {
-        minMaxObj.min = prev;
-        minMaxObj.max = el;
-      } else if (prev < minMaxObj.min) {
-        minMaxObj.min = prev;
-      } else if (el > minMaxObj.max) {
-        minMaxObj.max = el;
-      }
+  const minMax = {
+    min: arrNum[0],
+    max: arrNum[0]
+  };
+  arrNum.forEach((el) => {
+    if (el < minMax.min) {
+      minMax.min = el;
     }
-    return prev = el;
+    if (el > minMax.max) {
+      minMax.max = el;
+    }
   });
-  return minMaxObj;
+  return minMax;
 }

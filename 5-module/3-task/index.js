@@ -8,24 +8,24 @@ function initCarousel() {
   const conditionChange = -carouselWidth * (slideElements.length - 1);
   let translateValue = undefined;
 
-  function showButton(show, buttonElement) {
-    if (show) {
-      buttonElement.style.display = '';
-    } else {
-      buttonElement.style.display = 'none';
-    }
+  function showButton(buttonElement) {
+    buttonElement.style.display = '';
+  }
+
+  function hideButton(buttonElement) {
+    buttonElement.style.display = 'none';
   }
 
   function toggleButtonsInit() {
     if (translateValue === 0 || !Boolean(translateValue)) {
-      showButton(true, carouselArrowRight);
-      showButton(false, carouselArrowLeft);
+      showButton(carouselArrowRight);
+      hideButton(carouselArrowLeft);
     } else if (translateValue > conditionChange && translateValue !== 0) {
-      showButton(true, carouselArrowRight);
-      showButton(true, carouselArrowLeft);
+      showButton(carouselArrowRight);
+      showButton(carouselArrowLeft);
     } else {
-      showButton(false, carouselArrowRight);
-      showButton(true, carouselArrowLeft);
+      hideButton(carouselArrowRight);
+      showButton(carouselArrowLeft);
     }
   }
 

@@ -1,8 +1,5 @@
 function filterRange(arr, a, b) {
-  const arrFiltered = arr.filter((el) => {
-    if (el <= b && el >= a) {
-      return el;
-    }
+  return arr.filter((el) => {
+    return el <= b && el >= a;
   });
-  return arrFiltered;
 }
